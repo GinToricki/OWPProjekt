@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="./src/main.css">
+
+    <script src="./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+    <title>Banka Vuv</title>
+  </head>
+  <body>
+    <form>
+      <div class="mb-3">
+        <label for="imeRegister" class="form-label">Ime</label>
+        <input type="text" placeholder="Tin" id="imeRegister">
+      </div>
+      <div class="mb-3">
+        <label for="prezimeRegister" class="form-label">Prezime</label>
+        <input type="text" placeholder="Goricki" id="prezimeRegister">
+      </div>
+      <div class="mb-3">
+        <label for="emailRegister" class="form-label">Email</label>
+        <input type="email" placeholder="email@example.com" id="emailRegister">
+      </div>
+      <div class="mb-3">
+        <label for="passwordRegister" class="form-label">Password</label>
+        <input type="password" placeholder="password" id="passwordRegister">
+      </div>
+      <div class="mb-3">
+        <label for="adminRegister" class="form-label">Admin</label>
+
+        <select name="adminRegister" id="adminRegister">
+          <option value="True">True</option>
+          <option value="False">False</option>
+        </select>
+      </div>
+      <div class="mb-3">
+        <label for="adressRegister" class="form-label">Adresa</label>
+        <input type="text" placeholder="Jakova gotovca 22" id="adressRegister">
+      </div>
+      <div class="mb-3">
+        <label for="oibRegister" class="form-label">OIB</label>
+        <input type="text" placeholder="22441430282" id="oibRegister">
+      </div>
+      <div class="mb-3">
+        <label for="telefonRegister" class="form-label">Telefon</label>
+        <input type="text" placeholder="0995079688" id="telefonRegister">
+      </div>
+      <button type="button" id="register">Register</button>
+    </form>
+    <form >
+      <input type="text" placeholder="email" id="emailLogin">
+      <input type="text" placeholder="password" id="passwordLogin">
+      <button type="button" id="login">Login</button>
+    </form>
+    <script src="https://www.gstatic.com/firebasejs/9.24.0/firebase-app.js"></script> 
+    <script src="https://www.gstatic.com/firebasejs/9.24.0/firebase-analytics.js"></script> 
+    <script src="https://www.gstatic.com/firebasejs/9.24.0/firebase-auth.js"></script> 
+    <script src="https://www.gstatic.com/firebasejs/9.24.0/firebase-firestore.js"></script>
+    <script src="./node_modules/jquery/dist/jquery.min.js"></script>
+    <script type="module" src="/src/main.js"></script>
+    <script type="module" src="/src/login.js"></script>
+  </body>
+</html>
