@@ -28,7 +28,8 @@ const korisniciRef = ref(db, 'korisnici');
 const auth = getAuth(app)
 
 
-$("#register").on("click", function() {
+$("#register").on("click", function(event) {
+    event.preventDefault();
 
     let ime = $("#imeRegister").val()
     let prezime = $("#prezimeRegister").val()
