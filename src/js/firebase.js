@@ -24,6 +24,8 @@ const app = initializeApp(firebaseConfig);
 const db = getDatabase (app);
 
 const korisniciRef = ref(db, 'korisnici');
+const racuniRef = ref(db, 'racuni');
+const transakcijeRef = ref(db, 'transakcije')
 
 const auth = getAuth(app)
 
@@ -66,4 +68,4 @@ $("#register").on("click", function(event) {
 })
 
 
-export {db, korisniciRef, auth}
+export {db, korisniciRef, auth, racuniRef,transakcijeRef}
