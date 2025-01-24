@@ -51,6 +51,50 @@
             
         </div>
     </div>
+    <!-- Modal -->
+    <div class="modal fade" id="dodajRacunModal" tabindex="-1" aria-labelledby="dodajRacunModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h1 class="modal-title fs-5" id="dodajRacunModalLabel">Dodaj Račun</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="mb-3">
+                        <label for="inputIBAN" class="form-label">iban</label>
+                        <input type="text" class="form-control" id="inputIBAN" aria-describedby="emailHelp">
+                        
+                      </div>
+                    <div class="mb-3">
+                        <label for="inputStanje" class="form-label">Stanje</label>
+                        <input type="number" class="form-control" id="inputStanje" aria-describedby="emailHelp">
+                        
+                      </div>
+                      <div class="mb-3">
+                        <label for="inputVrsta" class="form-label">Vrsta</label>
+                        <select  id="inputVrsta">
+                            <option value="žiro">Žiro</option>
+                            <option value="tekući">Tekući</option>
+                        </select>
+                      </div>
+                      <div class="mb-3">
+                        <label for="inputValuta" class="form-label">Valuta</label>
+                        <select  id="inputValuta">
+                            <option value="EUR">EUR</option>
+                            <option value="USD">USD</option>
+                        </select>
+                      </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary" id="dodaj-racun">Save changes</button>
+            </div>
+        </div>
+        </div>
+    </div>
     <script src="./node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="./src/js/racuniAdmin.js" type="module"></script>
 </body>
 </html>
