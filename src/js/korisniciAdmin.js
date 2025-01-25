@@ -21,8 +21,8 @@ onValue(korisniciRef, (snapshot) => {
             <td data-key=${korisnikKey}>${ime}</td>
             <td >${prezime}</td>
             <td >${oib}</td>
-            <td >${adresa}</td>
             <td >${telefon}</td>
+            <td >${adresa}</td>
             <td >${email}</td>
         <tr>
         `)
