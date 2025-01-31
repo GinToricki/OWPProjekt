@@ -1,5 +1,7 @@
 import { onValue, ref, push, child, update, remove } from "firebase/database";
-import { db, korisniciRef } from "./firebase";
+import { db, korisniciRef, auth } from "./firebase";
+import {getAuth, createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword} from "firebase/auth"
+
 
 onValue(korisniciRef, (snapshot) => {
     let tableBody = $("#korisnici-table");
@@ -29,4 +31,41 @@ onValue(korisniciRef, (snapshot) => {
 
   })
 
+})
+
+$("#dodajKorisnika").on("click", function(event) {
+  event.preventDefault();
+
+  let ime = $("#imeRegister").val()
+  let prezime = $("#prezimeRegister").val()
+  let admin = $("#adminRegister").val() == "True" ? true :  false
+  let email = $("#emailRegister").val()
+  let password = $("#passwordRegister").val()
+  let oib = $("#oibRegister").val()
+  let telefonRegister = $("#telefonRegister").val()
+  let adresa = $("#adressRegister").val()
+
+  console.log(admin)
+  createUserWithEmailAndPassword(auth,email,password)
+  .then((userCredential) => {
+      const user = userCredential.user;
+      console.log(user.uid)
+
+      var user_data = {
+          email: email,
+          ime: ime,
+          prezime: prezime,
+          admin: admin,
+          adresa: adresa,
+          oib: oib,
+          password: password,
+          telefon: telefonRegister
+      }
+
+      const updates = {}
+
+      updates['korisnici/' + user.uid] = user_data
+
+      update(ref(db), updates)
+  })
 })

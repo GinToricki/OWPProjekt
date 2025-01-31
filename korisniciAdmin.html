@@ -47,6 +47,7 @@
     </nav>
 
     <div class="container mt-4">
+        <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#dodajModal">Dodaj Korisnika</button>
         <table class="table table-bordered table-hover mt-4 rounded-3 overflow-hidden">
             <thead class="table-info">
                 <tr>
@@ -61,6 +62,62 @@
             <tbody id="korisnici-table">
             </tbody>
         </table>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="dodajModal" tabindex="-1" aria-labelledby="dodajModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h1 class="modal-title fs-5" id="dodajLabel">Dodaj Korisnika</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="mb-3">
+                      <label for="imeRegister" class="form-label">Ime</label>
+                      <input type="text" placeholder="Tin" id="imeRegister">
+                    </div>
+                    <div class="mb-3">
+                      <label for="prezimeRegister" class="form-label">Prezime</label>
+                      <input type="text" placeholder="Goricki" id="prezimeRegister">
+                    </div>
+                    <div class="mb-3">
+                      <label for="emailRegister" class="form-label">Email</label>
+                      <input type="email" placeholder="email@example.com" id="emailRegister">
+                    </div>
+                    <div class="mb-3">
+                      <label for="passwordRegister" class="form-label">Password</label>
+                      <input type="password" placeholder="password" id="passwordRegister">
+                    </div>
+                    <div class="mb-3">
+                      <label for="adminRegister" class="form-label">Admin</label>
+              
+                      <select name="adminRegister" id="adminRegister">
+                        <option value="True">True</option>
+                        <option value="False">False</option>
+                      </select>
+                    </div>
+                    <div class="mb-3">
+                      <label for="adressRegister" class="form-label">Adresa</label>
+                      <input type="text" placeholder="Jakova gotovca 22" id="adressRegister">
+                    </div>
+                    <div class="mb-3">
+                      <label for="oibRegister" class="form-label">OIB</label>
+                      <input type="text" placeholder="22441430282" id="oibRegister">
+                    </div>
+                    <div class="mb-3">
+                      <label for="telefonRegister" class="form-label">Telefon</label>
+                      <input type="text" placeholder="0995079688" id="telefonRegister">
+                    </div>
+                  </form>
+            </div>
+            <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Zatvori</button>
+            <button type="button" class="btn btn-primary" id="dodajKorisnika">Dodaj</button>
+            </div>
+        </div>
+        </div>
     </div>
     <script src="./node_modules/jquery/dist/jquery.min.js"></script>
     <script type="module" src="./src/js/korisniciAdmin.js"></script>

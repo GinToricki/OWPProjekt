@@ -29,43 +29,4 @@ const transakcijeRef = ref(db, 'transakcije')
 
 const auth = getAuth(app)
 
-
-$("#register").on("click", function(event) {
-    event.preventDefault();
-
-    let ime = $("#imeRegister").val()
-    let prezime = $("#prezimeRegister").val()
-    let admin = $("#adminRegister").val() == "True" ? true :  false
-    let email = $("#emailRegister").val()
-    let password = $("#passwordRegister").val()
-    let oib = $("#oibRegister").val()
-    let telefonRegister = $("#telefonRegister").val()
-    let adresa = $("#adressRegister").val()
-
-    console.log(admin)
-    createUserWithEmailAndPassword(auth,email,password)
-    .then((userCredential) => {
-        const user = userCredential.user;
-        console.log(user.uid)
-
-        var user_data = {
-            email: email,
-            ime: ime,
-            prezime: prezime,
-            admin: admin,
-            adresa: adresa,
-            oib: oib,
-            password: password,
-            telefon: telefonRegister
-        }
-
-        const updates = {}
-
-        updates['korisnici/' + user.uid] = user_data
-
-        update(ref(db), updates)
-    })
-})
-
-
 export {db, korisniciRef, auth, racuniRef,transakcijeRef}
