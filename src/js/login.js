@@ -29,8 +29,8 @@ onAuthStateChanged(auth, (user) => {
 $("#login").on("click" ,async function (event)  {
     
 
-    const emailLogin = $("#emailLogin").val();
-    const passwordLogin = $("#passwordLogin").val();
+    const emailLogin = $("#loginEmail").val();
+    const passwordLogin = $("#loginPassword").val();
 
     try {
         const userCredential = await signInWithEmailAndPassword(auth, emailLogin, passwordLogin);
@@ -40,8 +40,4 @@ $("#login").on("click" ,async function (event)  {
     }catch(error){
 
     }
-})
-
-$("#logout").on("click", function () {
-    console.log("radi")
 })
