@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./src/css/main.css">
+    <script src="./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <title>Korisnik Informacije</title>
+</head>
+<body>
+    <nav class="navbar navbar-expand-sm navbar-light bg-light"> 
+        <div class="container">
+            <a href="/homepageAdmin.html"
+            class="navbar-brand mb-0 h1"
+            >
+            <img src="./src/images/privredna banka virovitica1.png" alt="PBV"
+            class="d-inline-block align-top"
+            width="30" height="30">
+            </a>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item active">
+                        <a href="/homepageAdmin.html" class="nav-link">
+                            Početna
+                        </a>
+                    </li>
+                    <li class="nav-item active">
+                        <a href="/korisniciAdmin.html" class="nav-link active">
+                            Korisnici
+                        </a>
+                    </li>
+                    <li class="nav-item active">
+                        <a href="/racuniAdmin.html" class="nav-link">
+                            Računi
+                        </a>
+                    </li>
+                    <li class="nav-item active">
+                        <a href="/transakcijeAdmin.html" class="nav-link">
+                            Transakcije
+                        </a>
+                    </li>
+                </ul>
+                
+            </div>
+            <button id="logout" class="btn btn-primary">Logout</button>
+        </div>
+    </nav>
+    <div class="container mt-4">
+            <button class="btn btn-danger">Izbrisi</button>
+            <button class="btn btn-info">Uredi</button>
+        <h1 id="ime"></h1>
+        <h4 id="oib"></h4>
+        <h4 id="adresa"></h4>
+        <h4 id="email"></h4>
+        <h4 id="telefon"></h4>
+        <div class="container mt-4 border border-primary p-3 rounded">
+            <h2>
+                Tekući
+                </h2>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>IBAN</th>
+                            <th>Stanje</th>
+                            <th>Valuta</th>
+                            <th>Izbrisi</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tekuci">
+        
+                    <tbody>
+                </table>
+                <h2>
+                Žiro
+                </h2>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>IBAN</th>
+                            <th>Stanje</th>
+                            <th>Valuta</th>
+                            <th>Izbrisi</th>
+                        </tr>
+                    </thead>
+                    <tbody id="ziro">
+        
+                    <tbody>
+                </table>
+                <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#dodajRacunModal">Dodaj</button>
+        </div>
+       
+    </div>
+    <div class="container mt-4">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Vrsta</th>
+                    <th>Datum</th>
+                    <th>Iban Racuna</th>
+                    <th>Iznos</th>
+                </tr>
+            </thead>
+            <tbody id="transakcije">
+
+            </tbody>
+        </table>
+    </div>
+
+    <div class="modal fade" id="dodajRacunModal" tabindex="-1" aria-labelledby="dodajRacunModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h1 class="modal-title fs-5" id="dodajRacunModalLabel">Dodaj Račun</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="mb-3">
+                        <label for="inputIBAN" class="form-label">iban</label>
+                        <input type="text" class="form-control" id="inputIBAN" aria-describedby="emailHelp">
+                        
+                      </div>
+                    <div class="mb-3">
+                        <label for="inputStanje" class="form-label">Stanje</label>
+                        <input type="number" class="form-control" id="inputStanje" aria-describedby="emailHelp">
+                        
+                      </div>
+                      <div class="mb-3">
+                        <label for="inputVrsta" class="form-label">Vrsta</label>
+                        <select  id="inputVrsta">
+                            <option value="žiro">Žiro</option>
+                            <option value="tekući">Tekući</option>
+                        </select>
+                      </div>
+                      <div class="mb-3">
+                        <label for="inputValuta" class="form-label">Valuta</label>
+                        <select  id="inputValuta">
+                            <option value="EUR">EUR</option>
+                            <option value="USD">USD</option>
+                        </select>
+                      </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary" id="dodaj-racun">Dodaj racun</button>
+            </div>
+        </div>
+        </div>
+    </div>
+    <script src="./node_modules/jquery/dist/jquery.min.js"></script>
+    <script type="module" src="./src/js/users.js"></script>
+    <script type="module" src="./src/js/korisnikInfo.js"></script>
+</body>
+</html>

@@ -18,6 +18,7 @@ onValue(korisniciRef, (snapshot) => {
     let adresa = korisnik.adresa;
     let email = korisnik.email;
 
+    let naziv = ime + " " + prezime
     tableBody.append(`
         <tr>
             <td data-key=${korisnikKey}>${ime}</td>
@@ -26,6 +27,7 @@ onValue(korisniciRef, (snapshot) => {
             <td >${telefon}</td>
             <td >${adresa}</td>
             <td >${email}</td>
+            <td><a href="korisnikInfo.html?korisnik_key=${korisnikKey}">${naziv} </a> </td>
         <tr>
         `)
 
