@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./src/css/main.css">
+    <script src="./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <title>Transakcija info</title>
+</head>
+<body>
+    <nav class="navbar navbar-expand-sm navbar-light bg-light"> 
+        <div class="container">
+            <a href="/homepageAdmin.html"
+            class="navbar-brand mb-0 h1"
+            >
+            <img src="./src/images/privredna banka virovitica1.png" alt="PBV"
+            class="d-inline-block align-top"
+            width="30" height="30">
+            </a>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item active">
+                        <a href="/homepageAdmin.html" class="nav-link">
+                            Početna
+                        </a>
+                    </li>
+                    <li class="nav-item active">
+                        <a href="/korisniciAdmin.html" class="nav-link">
+                            Korisnici
+                        </a>
+                    </li>
+                    <li class="nav-item active">
+                        <a href="/racuniAdmin.html" class="nav-link">
+                            Računi
+                        </a>
+                    </li>
+                    <li class="nav-item active">
+                        <a href="/transakcijeAdmin.html" class="nav-link active">
+                            Transakcije
+                        </a>
+                    </li>
+                </ul>
+                
+            </div>
+            <button id="logout" class="btn btn-primary">Logout</button>
+        </div>
+    </nav>
+    <div class="container mt-4">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Vrsta</th>
+                    <th>Datum</th>
+                    <th>Iznos</th>
+                </tr>
+            </thead>
+            <tbody id="transakcije-tijelo">
+    
+            </tbody>
+        </table>
+    </div>
+   
+    <script src="./node_modules/jquery/dist/jquery.min.js"></script>
+    <script type="module" src="./src/js/users.js"></script>
+</body>
+</html>
