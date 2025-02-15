@@ -5,11 +5,13 @@ var sUrl = window.location.href ;
 var oUrl = new URL(sUrl);
 var korisnikKey = oUrl.searchParams.get("korisnik_key");
 let racuniVlasnika = []
+let kInfo = ""
 
 const oKorisnikRef = ref(db);
 get(child(oKorisnikRef, 'korisnici/' + korisnikKey)).then((snapshot) => {
     if(snapshot.exists()){
         const korisnik = snapshot.val();
+        kInfo = korisnik
 
         let ime = korisnik.ime;
         let prezime = korisnik.prezime;
@@ -115,4 +117,47 @@ onValue(transakcijeRef, (transakcijeSnapshot) => {
             )
         }
     })
+})
+
+$("#urediKorisnikabtn").on("click", function () {
+    $("#imeUredi").val(kInfo.ime)
+    $("#prezimeUredi").val(kInfo.prezime)
+    $("#adressUredi").val(kInfo.adresa)
+    $("#telefonUredi").val(kInfo.telefon)
+
+    
+})
+
+$("#uredi-korisnika").on("click", function() {
+    let imeUredi =  $("#imeUredi").val()
+    let prezimeUredi = $("#prezimeUredi").val()
+    let adresaUredi = $("#adressUredi").val()
+    let telefonUredi = $("#telefonUredi").val()
+    let lozinka = kInfo.passsword
+
+    let naziv = imeUredi + " " + prezimeUredi
+
+    $("#ime").html(naziv)
+    $("#oib").html(kInfo.oib)
+    $("#adresa").html(adresaUredi)
+    $("#telefon").html(telefonUredi)
+    $("#email").html(kInfo.email)
+
+    var postData2 = 
+    {
+        "admin": kInfo.admin,
+        "adresa": adresaUredi,
+        "email": kInfo.email,
+        "ime": imeUredi,
+        "oib": kInfo.oib,
+        "passsword": lozinka,
+        "prezime": prezimeUredi,
+        "telefon": telefonUredi
+    }
+
+    const updates = {}
+
+    updates["korisnici/" + korisnikKey] = postData2
+
+    update(ref(db), updates)
 })

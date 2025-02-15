@@ -47,7 +47,7 @@
     </nav>
     <div class="container mt-4">
             <button class="btn btn-danger">Izbrisi</button>
-            <button class="btn btn-info">Uredi</button>
+            <button class="btn btn-info" data-bs-toggle="modal" data-bs-target="#urediKorisnikaModal" id="urediKorisnikabtn">Uredi</button>
         <h1 id="ime"></h1>
         <h4 id="oib"></h4>
         <h4 id="adresa"></h4>
@@ -110,44 +110,78 @@
 
     <div class="modal fade" id="dodajRacunModal" tabindex="-1" aria-labelledby="dodajRacunModalLabel" aria-hidden="true">
         <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-            <h1 class="modal-title fs-5" id="dodajRacunModalLabel">Dodaj Račun</h1>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <form>
-                    <div class="mb-3">
-                        <label for="inputIBAN" class="form-label">iban</label>
-                        <input type="text" class="form-control" id="inputIBAN" aria-describedby="emailHelp">
-                        
-                      </div>
-                    <div class="mb-3">
-                        <label for="inputStanje" class="form-label">Stanje</label>
-                        <input type="number" class="form-control" id="inputStanje" aria-describedby="emailHelp">
-                        
-                      </div>
-                      <div class="mb-3">
-                        <label for="inputVrsta" class="form-label">Vrsta</label>
-                        <select  id="inputVrsta">
-                            <option value="žiro">Žiro</option>
-                            <option value="tekući">Tekući</option>
-                        </select>
-                      </div>
-                      <div class="mb-3">
-                        <label for="inputValuta" class="form-label">Valuta</label>
-                        <select  id="inputValuta">
-                            <option value="EUR">EUR</option>
-                            <option value="USD">USD</option>
-                        </select>
-                      </div>
-                </form>
-            </div>
-            <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary" id="dodaj-racun">Dodaj racun</button>
+            <div class="modal-content">
+                <div class="modal-header">
+                <h1 class="modal-title fs-5" id="dodajRacunModalLabel">Dodaj Račun</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="mb-3">
+                            <label for="inputIBAN" class="form-label">iban</label>
+                            <input type="text" class="form-control" id="inputIBAN" aria-describedby="emailHelp">
+                            
+                        </div>
+                        <div class="mb-3">
+                            <label for="inputStanje" class="form-label">Stanje</label>
+                            <input type="number" class="form-control" id="inputStanje" aria-describedby="emailHelp">
+                            
+                        </div>
+                        <div class="mb-3">
+                            <label for="inputVrsta" class="form-label">Vrsta</label>
+                            <select  id="inputVrsta">
+                                <option value="žiro">Žiro</option>
+                                <option value="tekući">Tekući</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="inputValuta" class="form-label">Valuta</label>
+                            <select  id="inputValuta">
+                                <option value="EUR">EUR</option>
+                                <option value="USD">USD</option>
+                            </select>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" id="dodaj-racun">Dodaj racun</button>
+                </div>
             </div>
         </div>
+    </div>
+    <div class="modal fade" id="urediKorisnikaModal" tabindex="-1" aria-labelledby="urediKorisnikaModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h1 class="modal-title fs-5" id="urediKorisnikaModalLabel">Uredi Korisnika</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="mb-3">
+                          <label for="imeUredi" class="form-label">Ime</label>
+                          <input type="text" placeholder="Tin" id="imeUredi">
+                        </div>
+                        <div class="mb-3">
+                          <label for="prezimeUredi" class="form-label">Prezime</label>
+                          <input type="text" placeholder="Goricki" id="prezimeUredi">
+                        </div>
+                        <div class="mb-3">
+                          <label for="adressUredi" class="form-label">Adresa</label>
+                          <input type="text" placeholder="Jakova gotovca 22" id="adressUredi">
+                        </div>
+                        <div class="mb-3">
+                          <label for="telefonUredi" class="form-label">Telefon</label>
+                          <input type="text" placeholder="0995079688" id="telefonUredi">
+                        </div>
+                      </form>
+                </div>
+                <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Zatvori</button>
+                <button type="button" class="btn btn-primary" id="uredi-korisnika">Uredi</button>
+                </div>
+            </div>
         </div>
     </div>
     <script src="./node_modules/jquery/dist/jquery.min.js"></script>
