@@ -1,6 +1,5 @@
-import { ref,get,child,push,update,onValue,remove } from "firebase/database";
+import { ref,get,child,push,update,onValue,remove,orderByChild } from "firebase/database";
 import { db, korisniciRef,racuniRef,transakcijeRef } from "./firebase.js";
-import { FALSE } from "sass";
 
 var sUrl = window.location.href ;
 var oUrl = new URL(sUrl);
@@ -32,27 +31,32 @@ get(child(oKorisnikRef, 'korisnici/' + korisnikKey)).then((snapshot) => {
 })
 
  $("#dodaj-racun").on("click", function () {
-        console.log("radi")
+        
                     let ibanInpt = $("#inputIBAN").val()
                     let inputStanje = $("#inputStanje").val()
                     let inputVrsta = $('#inputVrsta').find(":selected").val();
                     let inputValuta = $('#inputValuta').find(":selected").val();
 
-                    let postData = {
-                        id_vlasnika: korisnikKey ,
-                        iban: ibanInpt,
-                        stanje: inputStanje,
-                        valuta: inputValuta,
-                        vrsta: inputVrsta
+                    if(ProvjeriRacune(ibanInpt)){
+                        alert("Iban vec postoji!")
+                        return false;
+                    }else {
+                        let postData = {
+                            id_vlasnika: korisnikKey ,
+                            iban: ibanInpt,
+                            stanje: inputStanje,
+                            valuta: inputValuta,
+                            vrsta: inputVrsta
+                        }
+    
+                        const newPostKey = push(child(ref(db), 'racuni')).key
+                        const updates = {}
+    
+                        updates['racuni/' + newPostKey] = postData
+    
+                       
+                        update(ref(db), updates)
                     }
-
-                    const newPostKey = push(child(ref(db), 'racuni')).key
-                    const updates = {}
-
-                    updates['racuni/' + newPostKey] = postData
-
-                   
-                    update(ref(db), updates)
                 })
 
 
@@ -188,4 +192,18 @@ function checkIfAccountExists() {
     }else {
         return false
     }
+}
+
+function ProvjeriRacune(ibanRacuna){
+    let postoji = false;
+    onValue(racuniRef, (racuniSnapshot) => {
+        racuniSnapshot.forEach(racun => {
+            let racunInfo = racun.val()
+            if(racunInfo.iban == ibanRacuna){
+               
+                postoji = true
+            }
+        })
+    } )
+    return postoji
 }
