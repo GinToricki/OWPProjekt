@@ -1,5 +1,6 @@
 import { ref,get,child,push,update,onValue,remove } from "firebase/database";
 import { db, korisniciRef,racuniRef,transakcijeRef } from "./firebase.js";
+import { FALSE } from "sass";
 
 var sUrl = window.location.href ;
 var oUrl = new URL(sUrl);
@@ -161,3 +162,30 @@ $("#uredi-korisnika").on("click", function() {
 
     update(ref(db), updates)
 })
+
+$("#izbrisi-korisnika-btn").on("click", function() {
+    if(checkIfAccountExists()){
+        alert("Korisnik ima racun i nije ga moguce izbrisati")
+    }else{
+        remove(ref(db, 'korisnici/' + korisnikKey))
+        alert("Korisnik je uspijesno izbrisan")
+        window.location.href="korisniciAdmin.html"
+    }
+})
+
+function checkIfAccountExists() {
+    let contains = false
+    onValue(racuniRef, (racuniSnapshot) => {
+        racuniSnapshot.forEach((racun) => {
+            const racunInfo = racun.val()
+            if(racunInfo.id_vlasnika == korisnikKey) {
+                contains = true
+            }
+        })
+    })
+    if(contains){
+        return true
+    }else {
+        return false
+    }
+}
