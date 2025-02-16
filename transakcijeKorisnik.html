@@ -20,7 +20,7 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item active">
-                        <a href="./homepage.html" class="nav-link active">
+                        <a href="./homepage.html" class="nav-link">
                             Početna
                         </a>
                     </li>
@@ -30,7 +30,7 @@
                         </a>
                     </li>
                     <li class="nav-item active">
-                        <a href="./transakcijeKorisnik.html" class="nav-link">
+                        <a href="./transakcijeKorisnik.html" class="nav-link active">
                             Transakcije
                         </a>
                     </li>
@@ -40,8 +40,24 @@
             <button id="logout" class="btn btn-primary">Logout</button>
         </div>
     </nav>
-
+    <div class="container mt-4">
+        <table class="table mt-4">
+            <thead>
+                <tr>
+                    <th>IBAN računa</th>
+                    <th>Vrsta transakcije</th>
+                    <th>Iznos</th>
+                    <th>Datum</th>
+                </tr>
+            </thead>
+            <tbody id="transakcijeKorisnik">
+    
+            </tbody>
+        </table>
+    </div>
+  
     <script src="./node_modules/jquery/dist/jquery.min.js"></script>
     <script type="module" src="./src/js/users.js"></script>
+    <script type="module" src="./src/js/transakcijeKorisnik.js"></script>
 </body>
 </html>
