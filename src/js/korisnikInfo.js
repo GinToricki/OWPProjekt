@@ -93,7 +93,7 @@ onValue(racuniRef, (racuniSnapshot) => {
                             <td>${racun.stanje} </td>
                             <td>${racun.valuta} </td>
                             <td><button class="btn btn-danger" id="${racunKey}-delete">Izbrisi</button></td>
-                            <td><a href="korisnikInfo.html?racun_key=${racunKey}">Transakcije </a> </td>
+                            <td><a href="transakcijaInfo.html?racun_key=${racunKey}">Transakcije </a> </td>
                         </tr>
                         `)
                 }
