@@ -212,7 +212,7 @@ function onPasswordToggleChange(e) {
 }
 
 function onPasswordToggleClick(e) {
-	//console.log("click: " + e.target.id);
+
 	e.target.focus();
 }
 
@@ -300,7 +300,7 @@ function getPosition(el) {
 
 		el = el.offsetParent;
 	}
-	//console.log("xPos: " + xPos + ", yPos: " + yPos);
+	
 	return {
 		x: xPos,
 		y: yPos

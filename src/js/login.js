@@ -10,10 +10,10 @@ onAuthStateChanged(auth, (user) => {
                 if(korisnikKey == user.uid){
                    const korisnik = korisnikSnapshot.val();
                    if(korisnik.admin){
-                    console.log("Admin")
+                  
                     window.location = "homepageAdmin.html"
                    }else{
-                    console.log("Korisnik")
+                   
                     window.location = "homepage.html"
                    }
                 }
@@ -36,7 +36,7 @@ $("#login").on("click" ,async function (event)  {
         const userCredential = await signInWithEmailAndPassword(auth, emailLogin, passwordLogin);
         const user = userCredential.user;
 
-        console.log(user)
+       
     }catch(error){
 
     }

@@ -8,10 +8,9 @@ let racuniKorisnika = []
 onAuthStateChanged(auth, function(user) {
     if(user){
         logedUser = user
-        console.log(user)
-        console.log(user.uid)
+       
     }else{
-        console.log("not working")
+       
     }
 })
 

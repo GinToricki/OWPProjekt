@@ -16,7 +16,7 @@ onValue(korisniciRef, (snapshot) => {
         let telefon = korisnik.telefon;
         let adresa = korisnik.adresa;
         let email = korisnik.email;
-        console.log(korisnik)
+    
         accordionBody.append(`
             <div class="accordion-item>
                 <h2 class="accordion-header">

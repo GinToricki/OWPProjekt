@@ -2,6 +2,17 @@ import { onValue, ref, push, child, update, remove } from "firebase/database";
 import { db, korisniciRef, auth } from "./firebase";
 import {getAuth, createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword} from "firebase/auth"
 
+let korisnici = []
+
+function dohvatiKorisnike(){
+  onValue(korisniciRef, (korisniciSnapshot) => {
+    korisniciSnapshot.forEach((korisnik) => {
+      let kljuc = korisnik.key
+      let korisnikInfo = korisnik.val();
+      
+    })
+  })
+}
 
 onValue(korisniciRef, (snapshot) => {
     let tableBody = $("#korisnici-table");
@@ -56,11 +67,11 @@ $("#dodajKorisnika").on("click", function(event) {
     return false;
   }
 
-  console.log(admin)
+ 
   createUserWithEmailAndPassword(auth,email,password)
   .then((userCredential) => {
       const user = userCredential.user;
-      console.log(user.uid)
+      
 
       var user_data = {
           email: email,
