@@ -4,15 +4,61 @@ import {getAuth, createUserWithEmailAndPassword, onAuthStateChanged, signInWithE
 
 let korisnici = []
 
+dohvatiKorisnike()
+
 function dohvatiKorisnike(){
   onValue(korisniciRef, (korisniciSnapshot) => {
     korisniciSnapshot.forEach((korisnik) => {
       let kljuc = korisnik.key
       let korisnikInfo = korisnik.val();
-      
+      korisnikInfo.kljuc = kljuc
+      korisnici.push(korisnikInfo)
     })
   })
 }
+
+function popuniTablicu(filtriraniKorisnici) {
+  let tableBody = $("#korisnici-table");
+  tableBody.empty()
+  filtriraniKorisnici.forEach(korisnik => {
+    
+  
+    let ime = korisnik.ime;
+    let prezime = korisnik.prezime;
+    let oib = korisnik.oib;
+    let telefon = korisnik.telefon;
+    let adresa = korisnik.adresa;
+    let email = korisnik.email;
+  
+    let naziv = ime + " " + prezime
+    tableBody.append(`
+        <tr>
+            <td data-key=${korisnik.kljuc}>${ime}</td>
+            <td >${prezime}</td>
+            <td >${oib}</td>
+            <td >${telefon}</td>
+            <td >${adresa}</td>
+            <td >${email}</td>
+            <td><a href="korisnikInfo.html?korisnik_key=${korisnik.kljuc}">${naziv} </a> </td>
+        <tr>
+        `)
+  })
+ 
+ 
+}
+
+$("#trazi-korisnika").on("keyup", function() {
+  let trazilicaInfo = $("#trazi-korisnika").val()
+  let filtriraniKorisnici = korisnici.filter(function(el) {
+    return el.ime.toLowerCase().includes(trazilicaInfo.toLowerCase()) ||
+           el.prezime.toLowerCase().includes(trazilicaInfo.toLowerCase()) ||
+           el.oib.toLowerCase().includes(trazilicaInfo.toLowerCase()) ||
+           el.adresa.toLowerCase().includes(trazilicaInfo.toLowerCase()) ||
+           el.email.toLowerCase().includes(trazilicaInfo.toLowerCase())
+  })
+  console.log(filtriraniKorisnici)
+  popuniTablicu(filtriraniKorisnici);
+})
 
 onValue(korisniciRef, (snapshot) => {
     let tableBody = $("#korisnici-table");
