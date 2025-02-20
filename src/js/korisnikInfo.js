@@ -7,6 +7,24 @@ var korisnikKey = oUrl.searchParams.get("korisnik_key");
 let racuniVlasnika = []
 let kInfo = ""
 
+function izbrisiTransakcijeRacuna(racun_funk) {
+    let transakcijeRacuna = []
+    onValue(transakcijeRef, (tSnapshop) => {
+        tSnapshop.forEach((tInfo) => {
+            let tInfoVrijednost = tInfo.val()
+            let tInfoKljuc = tInfo.key
+            if (tInfoVrijednost.iban_racuna == racun_funk){
+                transakcijeRacuna.push(tInfoKljuc)
+            }
+        })
+    })
+    transakcijeRacuna.forEach(transakcijaRacuna => {
+        remove(ref(db,'transakcije/' + transakcijaRacuna))
+    })
+}
+
+
+
 const oKorisnikRef = ref(db);
 get(child(oKorisnikRef, 'korisnici/' + korisnikKey)).then((snapshot) => {
     if(snapshot.exists()){
@@ -99,6 +117,7 @@ onValue(racuniRef, (racuniSnapshot) => {
                 }
                 $(`#${racunKey}-delete`).on("click", function() {
                     remove(ref(db,'racuni/' + racunKey))
+                    izbrisiTransakcijeRacuna(racun.iban)
                 })
             }
         })
