@@ -61,7 +61,7 @@
         </table>
     </div>
 
-    <div class="modal fade" id="dodajTransakcijuModal" tabindex="-1" aria-labelledby="dodajTransakcijuModalLabel" aria-hidden="true">
+    <div class="modal fade bg-info bg-gradient" id="dodajTransakcijuModal" tabindex="-1" aria-labelledby="dodajTransakcijuModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -72,17 +72,18 @@
                     <form>
                         <div class="mb-3">
                             <label for="inputDatum" class="form-label">datum</label>
-                            <input type="datetime-local" class="form-control" id="inputDatum" >
+                            <input type="datetime-local" class="form-control bg-dark text-light shadow rounded-pill" id="inputDatum" >
                             
                         </div>
                         <div class="mb-3">
                             <label for="inputIznos" class="form-label">Iznos</label>
-                            <input type="number" class="form-control" id="inputIznos">
+                            <input type="number" class="form-control bg-dark text-light shadow rounded-pill" id="inputIznos">
                             
                         </div>
                         <div class="mb-3">
                             <label for="inputVrsta" class="form-label">Vrsta</label>
-                            <select  id="inputVrsta">
+                            <br>
+                            <select  id="inputVrsta" class="bg-dark text-light shadow rounded-pill">
                                 <option value="Uplata">Uplata</option>
                                 <option value="Isplata">Isplata</option>
                             </select>
@@ -90,8 +91,8 @@
                     </form>
                 </div>
                 <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary" id="dodaj-transakciju">Dodaj transakciju</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Zatvori</button>
+                <button type="button" class="btn btn-primary" id="dodaj-transakciju" data-bs-dismiss="modal">Dodaj transakciju</button>
                 </div>
             </div>
         </div>

@@ -52,7 +52,7 @@
         </div>
     </div>
     <!-- Modal -->
-    <div class="modal fade" id="dodajRacunModal" tabindex="-1" aria-labelledby="dodajRacunModalLabel" aria-hidden="true">
+    <div class="modal fade bg-info bg-gradient" id="dodajRacunModal" tabindex="-1" aria-labelledby="dodajRacunModalLabel" aria-hidden="true">
         <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -63,24 +63,26 @@
                 <form>
                     <div class="mb-3">
                         <label for="inputIBAN" class="form-label">iban</label>
-                        <input type="text" class="form-control" id="inputIBAN" aria-describedby="emailHelp">
+                        <input type="text" class="form-control bg-dark text-light shadow rounded-pill" id="inputIBAN" aria-describedby="emailHelp">
                         
                       </div>
                     <div class="mb-3">
                         <label for="inputStanje" class="form-label">Stanje</label>
-                        <input type="number" class="form-control" id="inputStanje" aria-describedby="emailHelp">
+                        <input type="number" class="form-control bg-dark text-light shadow rounded-pill" id="inputStanje" aria-describedby="emailHelp">
                         
                       </div>
                       <div class="mb-3">
                         <label for="inputVrsta" class="form-label">Vrsta</label>
-                        <select  id="inputVrsta">
+                        <br>
+                        <select  id="inputVrsta" class="bg-dark text-light shadow rounded-pill">
                             <option value="žiro">Žiro</option>
                             <option value="tekući">Tekući</option>
                         </select>
                       </div>
                       <div class="mb-3">
                         <label for="inputValuta" class="form-label">Valuta</label>
-                        <select  id="inputValuta">
+                        <br>
+                        <select  id="inputValuta" class="bg-dark text-light shadow rounded-pill">
                             <option value="EUR">EUR</option>
                             <option value="USD">USD</option>
                         </select>

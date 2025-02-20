@@ -51,12 +51,9 @@ $("#dodajKorisnika").on("click", function(event) {
     alert("Email ne valja")
     return false
   }
-  if(CheckOib(oib)){
+  if(!isOibValid(oib)){
+    alert("oib ne valjas")
     return false;
-  }
-  if(!isValidPhoneNumber(telefonRegister)){
-    alert("Broj mobitela ne valja")
-    return false
   }
 
   console.log(admin)
@@ -84,42 +81,36 @@ $("#dodajKorisnika").on("click", function(event) {
   })
 })
 
-function CheckOib(oibInfo) {
-  if(oibInfo.length != 11){
-    alert("Oib nema 11 znamenaka")
-    return false
+function isOibValid(input) {
+  const oib = input.toString();
+
+  if (oib.match(/\d{11}/) === null) {
+      return false;
   }
 
-  let ostatak = 10
+  let calculated = 10;
 
-  for(let i = 0; i < 10; i++){
-    let currentDigit = Number(oibInfo[0])
+  for (const digit of oib.substring(0, 10)) {
+      calculated += parseInt(digit);
 
-    let zbroj = currentDigit + ostatak
+      calculated %= 10;
 
-    let meduOstatak = zbroj % 10
+      if (calculated === 0) {
+          calculated = 10;
+      }
 
-    if(meduOstatak == 0){
-      meduOstatak = 10
-    }
+      calculated *= 2;
 
-    let umnozak = meduOstatak * 2
-
-    ostatak = umnozak % 11
-  }
-  let kontrolnaZnamenka = 0
-  if(ostatak == 1)
-  {
-    kontrolnaZnamenka = 0
-  }else {
-    kontrolnaZnamenka = 11 - ostatak
+      calculated %= 11;
   }
 
-  if(Number(oibInfo[10]) == kontrolnaZnamenka){
-    return true
+  const check = 11 - calculated;
+  
+  if (check === 10) {
+      check = 0;
   }
-  alert("oib ne valja")
-  return false
+
+  return check === parseInt(oib[10]);
 }
 
 const validateEmail = (email) => {

@@ -129,7 +129,6 @@ $("#urediKorisnikabtn").on("click", function () {
     $("#prezimeUredi").val(kInfo.prezime)
     $("#adressUredi").val(kInfo.adresa)
     $("#telefonUredi").val(kInfo.telefon)
-
     
 })
 
@@ -138,7 +137,7 @@ $("#uredi-korisnika").on("click", function() {
     let prezimeUredi = $("#prezimeUredi").val()
     let adresaUredi = $("#adressUredi").val()
     let telefonUredi = $("#telefonUredi").val()
-    let lozinka = kInfo.passsword
+    
 
     let naziv = imeUredi + " " + prezimeUredi
 
@@ -155,7 +154,7 @@ $("#uredi-korisnika").on("click", function() {
         "email": kInfo.email,
         "ime": imeUredi,
         "oib": kInfo.oib,
-        "passsword": lozinka,
+        "password": kInfo.passsword,
         "prezime": prezimeUredi,
         "telefon": telefonUredi
     }

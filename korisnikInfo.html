@@ -108,7 +108,7 @@
         </table>
     </div>
 
-    <div class="modal fade" id="dodajRacunModal" tabindex="-1" aria-labelledby="dodajRacunModalLabel" aria-hidden="true">
+    <div class="modal fade bg-info bg-gradient" id="dodajRacunModal" tabindex="-1" aria-labelledby="dodajRacunModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -118,25 +118,27 @@
                 <div class="modal-body">
                     <form>
                         <div class="mb-3">
-                            <label for="inputIBAN" class="form-label">iban</label>
-                            <input type="text" class="form-control" id="inputIBAN" aria-describedby="emailHelp">
+                            <label for="inputIBAN" class="form-label">IBAN</label>
+                            <input type="text" class="form-control bg-dark text-light shadow rounded-pill" id="inputIBAN" aria-describedby="emailHelp" >
                             
                         </div>
                         <div class="mb-3">
                             <label for="inputStanje" class="form-label">Stanje</label>
-                            <input type="number" class="form-control" id="inputStanje" aria-describedby="emailHelp">
+                            <input type="number" class="form-control bg-dark text-light shadow rounded-pill" id="inputStanje" aria-describedby="emailHelp" disabled>
                             
                         </div>
                         <div class="mb-3">
                             <label for="inputVrsta" class="form-label">Vrsta</label>
-                            <select  id="inputVrsta">
+                            <br>
+                            <select  id="inputVrsta" class="bg-dark text-light shadow rounded-pill">
                                 <option value="žiro">Žiro</option>
                                 <option value="tekući">Tekući</option>
                             </select>
                         </div>
                         <div class="mb-3">
-                            <label for="inputValuta" class="form-label">Valuta</label>
-                            <select  id="inputValuta">
+                            <label for="inputValuta" class="form-label" >Valuta</label>
+                            <br>
+                            <select  id="inputValuta" class="bg-dark text-light shadow rounded-pill">
                                 <option value="EUR">EUR</option>
                                 <option value="USD">USD</option>
                             </select>
@@ -145,12 +147,12 @@
                 </div>
                 <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary" id="dodaj-racun">Dodaj racun</button>
+                <button type="button" class="btn btn-primary" id="dodaj-racun" data-bs-dismiss="modal">Dodaj racun</button>
                 </div>
             </div>
         </div>
     </div>
-    <div class="modal fade" id="urediKorisnikaModal" tabindex="-1" aria-labelledby="urediKorisnikaModalLabel" aria-hidden="true">
+    <div class="modal fade bg-info bg-gradient" id="urediKorisnikaModal" tabindex="-1" aria-labelledby="urediKorisnikaModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -161,25 +163,29 @@
                     <form>
                         <div class="mb-3">
                           <label for="imeUredi" class="form-label">Ime</label>
-                          <input type="text" placeholder="Tin" id="imeUredi">
+                          <br>
+                          <input type="text" placeholder="Tin" id="imeUredi" class="bg-dark text-light shadow rounded-pill">
                         </div>
                         <div class="mb-3">
                           <label for="prezimeUredi" class="form-label">Prezime</label>
-                          <input type="text" placeholder="Goricki" id="prezimeUredi">
+                          <br>
+                          <input type="text" placeholder="Goricki" id="prezimeUredi" class="bg-dark text-light shadow rounded-pill">
                         </div>
                         <div class="mb-3">
                           <label for="adressUredi" class="form-label">Adresa</label>
-                          <input type="text" placeholder="Jakova gotovca 22" id="adressUredi">
+                          <br>
+                          <input type="text" placeholder="Jakova gotovca 22" id="adressUredi" class="bg-dark text-light shadow rounded-pill">
                         </div>
                         <div class="mb-3">
                           <label for="telefonUredi" class="form-label">Telefon</label>
-                          <input type="text" placeholder="0995079688" id="telefonUredi">
+                          <br>
+                          <input type="text" placeholder="0995079688" id="telefonUredi" class="bg-dark text-light shadow rounded-pill">
                         </div>
                       </form>
                 </div>
                 <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Zatvori</button>
-                <button type="button" class="btn btn-primary" id="uredi-korisnika">Uredi</button>
+                <button type="button" class="btn btn-primary" id="uredi-korisnika" data-bs-dismiss="modal">Uredi</button>
                 </div>
             </div>
         </div>
