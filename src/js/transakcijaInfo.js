@@ -12,6 +12,8 @@ onValue(racuniRef, (racuni) => {
         let racunKey = racun.key;
         if(racunKey == rKey){
             racunInfo = racun.val()
+            $("#iban-rac").html(racunInfo.iban)
+            $("#stanje-rac").html(racunInfo.stanje)
         }
     })
 })
@@ -57,6 +59,10 @@ $("#dodaj-transakciju").on("click", function(event) {
         novoStanje = parseInt(racunInfo.stanje) + parseInt(iznos)
     }else{
         novoStanje = parseInt(racunInfo.stanje) - parseInt(iznos)
+        if(novoStanje < (-1000)){
+            alert("Transakcija će prekoračiti dopušteni limit")
+            return false;
+        }
     }
 
     let postData = {

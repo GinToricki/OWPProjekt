@@ -62,7 +62,7 @@ get(child(oKorisnikRef, 'korisnici/' + korisnikKey)).then((snapshot) => {
                         let postData = {
                             id_vlasnika: korisnikKey ,
                             iban: ibanInpt,
-                            stanje: inputStanje,
+                            stanje: 0,
                             valuta: inputValuta,
                             vrsta: inputVrsta
                         }
@@ -118,6 +118,7 @@ onValue(racuniRef, (racuniSnapshot) => {
                 $(`#${racunKey}-delete`).on("click", function() {
                     remove(ref(db,'racuni/' + racunKey))
                     izbrisiTransakcijeRacuna(racun.iban)
+                    location.reload()
                 })
             }
         })

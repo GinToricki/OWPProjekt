@@ -46,6 +46,11 @@
         </div>
     </nav>
     <div class="container mt-4">
+        <div class="container">
+            <h1 >Iban računa: <span id="iban-rac"></span></h1>
+            <h1>Stanje računa <span id="stanje-rac"></span></h1>
+            <h2>Dopušteni limit: -1000</h2>
+        </div>
         <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#dodajTransakcijuModal">Dodaj transakciju</button>
         <table class="table">
             <thead>
@@ -77,7 +82,7 @@
                         </div>
                         <div class="mb-3">
                             <label for="inputIznos" class="form-label">Iznos</label>
-                            <input type="number" class="form-control bg-dark text-light shadow rounded-pill" id="inputIznos">
+                            <input type="number" class="form-control bg-dark text-light shadow rounded-pill" id="inputIznos" min="0" oninput="this.value = Math.abs(this.value)">
                             
                         </div>
                         <div class="mb-3">
