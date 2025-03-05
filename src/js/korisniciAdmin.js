@@ -135,7 +135,26 @@ $("#dodajKorisnika").on("click", function(event) {
       updates['korisnici/' + user.uid] = user_data
 
       update(ref(db), updates)
+
+      $("#imeRegister").val('')
+      $("#prezimeRegister").val('')
+      $("#emailRegister").val('')
+      $("#passwordRegister").val('')
+      $("#oibRegister").val('')
+      $("#telefonRegister").val('')
+      $("#adressRegister").val('')
   })
+})
+
+$("#zatvoriDodajModal").on("click", () => {
+  $("#imeRegister").val('')
+  $("#prezimeRegister").val('')
+  $("#emailRegister").val('')
+  $("#passwordRegister").val('')
+  $("#oibRegister").val('')
+  $("#telefonRegister").val('')
+  $("#adressRegister").val('')
+
 })
 
 function isOibValid(input) {

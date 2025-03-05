@@ -55,12 +55,13 @@
         <h4 id="telefon"></h4>
         <div class="container mt-4 border border-primary p-3 rounded">
             <h2>
-                Tekući
+                Računi
                 </h2>
                 <table class="table">
                     <thead>
                         <tr>
                             <th>IBAN</th>
+                            <th>Vrsta</th>
                             <th>Stanje</th>
                             <th>Valuta</th>
                             <th>Izbrisi</th>
@@ -71,41 +72,13 @@
         
                     <tbody>
                 </table>
-                <h2>
-                Žiro
-                </h2>
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th>IBAN</th>
-                            <th>Stanje</th>
-                            <th>Valuta</th>
-                            <th>Izbrisi</th>
-                            <th>Transakcije</th>
-                        </tr>
-                    </thead>
-                    <tbody id="ziro">
-        
-                    <tbody>
-                </table>
+             
                 <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#dodajRacunModal">Dodaj</button>
         </div>
        
     </div>
     <div class="container mt-4">
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>Vrsta</th>
-                    <th>Datum</th>
-                    <th>Iban Racuna</th>
-                    <th>Iznos</th>
-                </tr>
-            </thead>
-            <tbody id="transakcije">
-
-            </tbody>
-        </table>
+      
     </div>
 
     <div class="modal fade bg-info bg-gradient" id="dodajRacunModal" tabindex="-1" aria-labelledby="dodajRacunModalLabel" aria-hidden="true">
@@ -119,18 +92,18 @@
                     <form>
                         <div class="mb-3">
                             <label for="inputIBAN" class="form-label">IBAN</label>
-                            <input type="text" class="form-control bg-dark text-light shadow rounded-pill" id="inputIBAN" aria-describedby="emailHelp" >
+                            <input type="text" class="form-control form-control" id="inputIBAN" aria-describedby="emailHelp" >
                             
                         </div>
-                        <div class="mb-3">
+                        <!--<div class="mb-3">
                             <label for="inputStanje" class="form-label">Stanje</label>
-                            <input type="number" class="form-control bg-dark text-light shadow rounded-pill" id="inputStanje" aria-describedby="emailHelp" disabled>
+                            <input type="number" class="form-control form-control" id="inputStanje" aria-describedby="emailHelp" disabled>
                             
-                        </div>
+                        </div>-->
                         <div class="mb-3">
                             <label for="inputVrsta" class="form-label">Vrsta</label>
                             <br>
-                            <select  id="inputVrsta" class="bg-dark text-light shadow rounded-pill">
+                            <select  id="inputVrsta" class="form-control">
                                 <option value="žiro">Žiro</option>
                                 <option value="tekući">Tekući</option>
                             </select>
@@ -138,7 +111,7 @@
                         <div class="mb-3">
                             <label for="inputValuta" class="form-label" >Valuta</label>
                             <br>
-                            <select  id="inputValuta" class="bg-dark text-light shadow rounded-pill">
+                            <select  id="inputValuta" class="form-control">
                                 <option value="EUR">EUR</option>
                                 <option value="USD">USD</option>
                             </select>
@@ -146,7 +119,7 @@
                     </form>
                 </div>
                 <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Zatvori</button>
                 <button type="button" class="btn btn-primary" id="dodaj-racun" data-bs-dismiss="modal">Dodaj racun</button>
                 </div>
             </div>
@@ -164,22 +137,22 @@
                         <div class="mb-3">
                           <label for="imeUredi" class="form-label">Ime</label>
                           <br>
-                          <input type="text" placeholder="Tin" id="imeUredi" class="bg-dark text-light shadow rounded-pill">
+                          <input type="text" placeholder="Tin" id="imeUredi" class="form-control">
                         </div>
                         <div class="mb-3">
                           <label for="prezimeUredi" class="form-label">Prezime</label>
                           <br>
-                          <input type="text" placeholder="Goricki" id="prezimeUredi" class="bg-dark text-light shadow rounded-pill">
+                          <input type="text" placeholder="Goricki" id="prezimeUredi" class="form-control">
                         </div>
                         <div class="mb-3">
                           <label for="adressUredi" class="form-label">Adresa</label>
                           <br>
-                          <input type="text" placeholder="Jakova gotovca 22" id="adressUredi" class="bg-dark text-light shadow rounded-pill">
+                          <input type="text" placeholder="Jakova gotovca 22" id="adressUredi" class="form-control">
                         </div>
                         <div class="mb-3">
                           <label for="telefonUredi" class="form-label">Telefon</label>
                           <br>
-                          <input type="text" placeholder="0995079688" id="telefonUredi" class="bg-dark text-light shadow rounded-pill">
+                          <input type="text" placeholder="0995079688" id="telefonUredi" class="form-control">
                         </div>
                       </form>
                 </div>

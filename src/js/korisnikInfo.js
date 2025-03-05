@@ -74,6 +74,8 @@ get(child(oKorisnikRef, 'korisnici/' + korisnikKey)).then((snapshot) => {
     
                        
                         update(ref(db), updates)
+                        $("#inputIBAN").val('')
+                        $("#inputVrsta").val("žiro")
                     }
                 })
 
@@ -98,6 +100,7 @@ onValue(racuniRef, (racuniSnapshot) => {
                     $(`#tekuci`).append(`
                         <tr>
                             <td>${racun.iban} </td>
+                            <td>Tekući</td>
                             <td>${racun.stanje} </td>
                             <td>${racun.valuta} </td>
                             <td><button class="btn btn-danger" id="${racunKey}-delete">Izbrisi</button></td>
@@ -105,9 +108,10 @@ onValue(racuniRef, (racuniSnapshot) => {
                         </tr>
                         `)
                 }else{
-                    $(`#ziro`).append(`
+                    $(`#tekuci`).append(`
                         <tr>
                             <td>${racun.iban} </td>
+                            <td>Žiro</td>
                             <td>${racun.stanje} </td>
                             <td>${racun.valuta} </td>
                             <td><button class="btn btn-danger" id="${racunKey}-delete">Izbrisi</button></td>
@@ -124,7 +128,7 @@ onValue(racuniRef, (racuniSnapshot) => {
         })
     })
 
-onValue(transakcijeRef, (transakcijeSnapshot) => {
+/*onValue(transakcijeRef, (transakcijeSnapshot) => {
     transakcijeSnapshot.forEach((transakcijaSnapshot) => {
         let transakcijaKey = transakcijaSnapshot.key
         const transakcija = transakcijaSnapshot.val()
@@ -142,7 +146,7 @@ onValue(transakcijeRef, (transakcijeSnapshot) => {
             )
         }
     })
-})
+})*/
 
 $("#urediKorisnikabtn").on("click", function () {
     $("#imeUredi").val(kInfo.ime)
